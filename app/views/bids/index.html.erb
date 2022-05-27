@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all bids
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new bid
+    </h2>
+
+    <form action="/insert_bid" method="post">
+      <div>
+        <label for="product_id_box">
+          Product
+        </label>
+
+        <input type="text" id="product_id_box" name="query_product_id">
+      </div>
+
+      <div>
+        <label for="sender_id_box">
+          Sender
+        </label>
+
+        <input type="text" id="sender_id_box" name="query_sender_id">
+      </div>
+
+      <div>
+        <label for="reciever_id_box">
+          Reciever
+        </label>
+
+        <input type="text" id="reciever_id_box" name="query_reciever_id">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <button>
+        Create bid
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Product
+        </th>
+
+        <th>
+          Sender
+        </th>
+
+        <th>
+          Reciever
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_bids.each do |a_bid| %>
+      <tr>
+        <td>
+          <%= a_bid.id %>
+        </td>
+
+        <td>
+          <%= a_bid.product_id %>
+        </td>
+
+        <td>
+          <%= a_bid.sender_id %>
+        </td>
+
+        <td>
+          <%= a_bid.reciever_id %>
+        </td>
+
+        <td>
+          <%= a_bid.status %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_bid.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_bid.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/bids/<%= a_bid.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,150 @@
+<div>
+  <div>
+    <h1>
+      List of all products
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new product
+    </h2>
+
+    <form action="/insert_product" method="post">
+      <div>
+        <label for="title_box">
+          Title
+        </label>
+
+        <input type="text" id="title_box" name="query_title">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
+      </div>
+
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price">
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id">
+      </div>
+
+      <button>
+        Create product
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Title
+        </th>
+
+        <th>
+          Image
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Price
+        </th>
+
+        <th>
+          Owner
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_products.each do |a_product| %>
+      <tr>
+        <td>
+          <%= a_product.id %>
+        </td>
+
+        <td>
+          <%= a_product.title %>
+        </td>
+
+        <td>
+          <%= a_product.image %>
+        </td>
+
+        <td>
+          <%= a_product.description %>
+        </td>
+
+        <td>
+          <%= a_product.price %>
+        </td>
+
+        <td>
+          <%= a_product.owner_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_product.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_product.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/products/<%= a_product.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
