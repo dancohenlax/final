@@ -1,3 +1,35 @@
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -650px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+ <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-left">
+            <h1 class="fw-bold mb-6">List of all bids</h1>
+            <h4 class="fw-light mb-5">Add new bid at the bottom of this page</h4>
+
+            
+
+
+
+
+<!--
+
 <div>
   <div>
     <h1>
@@ -53,7 +85,7 @@
     </form>
   </div>
 </div>
-
+-->
   <div>
       <div>
   <table class="table align-middle table-bordered">
@@ -90,4 +122,42 @@
 </div>
 
 <hr>
+
+<br><h2 class="fw-bold mb-6">Add a new bid</h2>
+            <form action="/insert_bid" method="post">
+
+
+              <!-- 2 column grid layout with text inputs -->
+              <div class="col">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="title_box" class="form-control" name="query_product_id" placeholder="Enter product ID" type="text"/>
+                    <label class="form-label" for="form3Example1">Product</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="image_box" class="form-control" name="query_sender_id" placeholder="Enter sender ID" type="text"/>
+                    <label class="form-label" for="form3Example2">Sender</label>
+                  </div>
+                </div>
+              
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="description_box" class="form-control" name="query_reciever_id" placeholder="Enter reciever ID" type="text"/>
+                    <label class="form-label" for="form3Example2">Reciever</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="price_box" class="form-control" name="query_status" placeholder="Enter status" type="text"/>
+                    <label class="form-label" for="form3Example2">Status</label>
+                  </div>
+                </div>
+                
+              <!-- Create product button -->
+              <button href="/bids" type="submit" class="btn btn-primary btn-block mb-4">
+                Create Bid
+              </button>
+
 <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-YebtrlqtuHTj2ZE2hKqPZK30KnXRdzUTtg&usqp=CAU" class="rounded" height="200"></center>

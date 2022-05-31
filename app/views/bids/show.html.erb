@@ -1,3 +1,181 @@
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -650px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+ <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-left">
+            <h1 class="fw-bold mb-6">Bid #<%= @the_bid.id %> details</h1>
+            <h4 class="fw-light mb-5">Edit bid at the bottom of this page</h4>
+
+                <div>
+                  <div>
+                    <a href="/bids">
+                      Go back
+                    </a>
+                  </div>
+                  <div>
+                    <a href="/delete_bid/<%= @the_bid.id %>">
+                      Delete bid
+                    </a>
+                  </div>
+                </div>
+
+                <dl>
+                  <dt>
+                    <br>Product
+                  </dt>
+                  <dd><%= @the_bid.product_id %></dd>
+
+                  <dt>
+                    Sender
+                  </dt>
+                  <dd>
+                    <%= @the_bid.sender_id %>
+                  </dd>
+
+                  <dt>
+                    Reciever
+                  </dt>
+                  <dd><%= @the_bid.reciever_id %></dd>
+
+                  <dt>
+                    Status
+                  </dt>
+                  <dd>
+                    <%= @the_bid.status %>
+                  </dd>
+
+                  <dt>
+                    Created at
+                  </dt>
+                  <dd>
+                    <%= time_ago_in_words(@the_bid.created_at) %> ago
+                  </dd>
+
+                  <dt>
+                    Updated at
+                  </dt>
+                  <dd>
+                    <%= time_ago_in_words(@the_bid.updated_at) %> ago
+                  </dd>
+                </dl>
+              </div>
+            </div>
+
+<hr>
+
+<!--                my bid table 
+
+              <div>
+                  <div>
+              <table class="table align-middle table-bordered">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Sender </th>
+                        <th scope="col">Reciever</th>                     
+                        <th scope="col">Status</th>
+                        <th scope="col">Created at</th>                      
+                        <th scope="col">Updated at</th>                        
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <dd><%= @the_bid.product_id %></dd>
+                        <dd><%= @the_bid.sender_id %></dd>
+                        <dd><%= @the_bid.reciever_id %></dd>
+                        <dd><%= @the_bid.status %></dd>
+                        <dd><%= time_ago_in_words(@the_bid.created_at) %> ago</dd>
+                        <dd><%= time_ago_in_words(@the_bid.updated_at) %> ago</dd>
+                    </tr>
+                    </tbody>
+                    
+                </table>
+            </div>
+-->
+
+
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -650px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+   <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-left">
+            <br><h2 class="fw-bold mb-5">Edit bid</h2>
+
+            <form action="/modify_bid/<%= @the_bid.id %>"  method="post" >
+     
+
+              <!-- 2 column grid layout with text inputs -->
+              <div class="col">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="title_box" class="form-control" name="query_product_id" placeholder="Enter product ID" type="text" value="<%= @the_bid.product_id %>"/>
+                    <label class="form-label" for="product_id_box">Product</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="sender_id_box" class="form-control" name="query_sender_id" placeholder="Enter sender ID" type="text" value="<%= @the_bid.sender_id %>"/>
+                    <label class="form-label" for="sender_id_box">Sender</label>
+                  </div>
+                </div>
+              
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="reciever_id_box" class="form-control" name="query_reciever_id" placeholder="Enter reciever ID" type="text" value="<%= @the_bid.reciever_id %>"/>
+                    <label class="form-label" for="reciever_id_box">Reciever</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="status_box" class="form-control" name="query_status" placeholder="Enter status" type="text"value="<%= @the_bid.status %>"/>
+                    <label class="form-label" for="status_box">Status</label>
+                  </div>
+                </div>
+              
+              <!-- Create edit button -->
+              <button href="/bids" type="submit" class="btn btn-primary btn-block mb-4">
+                Edit Bid
+              </button>
+
+<center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-YebtrlqtuHTj2ZE2hKqPZK30KnXRdzUTtg&usqp=CAU" class="rounded" height="200"></center>
+
+<!--############-
+
 <div>
   <div>
     <h1>
@@ -22,9 +200,7 @@
       <dt>
         Product
       </dt>
-      <dd>
-        <%= @the_bid.product_id %>
-      </dd>
+      <dd><%= @the_bid.product_id %></dd>
 
       <dt>
         Sender
@@ -36,9 +212,7 @@
       <dt>
         Reciever
       </dt>
-      <dd>
-        <%= @the_bid.reciever_id %>
-      </dd>
+      <dd><%= @the_bid.reciever_id %></dd>
 
       <dt>
         Status
@@ -67,50 +241,49 @@
 <hr>
 
 
-<div>
   <div>
-    <h2>
-      Edit bid
-    </h2>
+    <div>
+      <h2>
+        Edit bid
+      </h2>
 
-    <form action="/modify_bid/<%= @the_bid.id %>"  method="post" >
-      <div>
-        <label for="product_id_box">
-          Product
-        </label>
+      <form action="/modify_bid/<%= @the_bid.id %>"  method="post" >
+        <div>
+          <label for="product_id_box">
+            Product
+          </label>
 
-        <input type="text" id="product_id_box" name="query_product_id" value="<%= @the_bid.product_id %>">
-      </div>
+          <input type="text" id="product_id_box" name="query_product_id" value="<%= @the_bid.product_id %>">
+        </div>
 
-      <div>
-        <label for="sender_id_box">
-          Sender
-        </label>
+        <div>
+          <label for="sender_id_box">
+            Sender
+          </label>
 
-        <input type="text" id="sender_id_box" name="query_sender_id" value="<%= @the_bid.sender_id %>">
-      </div>
+          <input type="text" id="sender_id_box" name="query_sender_id" value="<%= @the_bid.sender_id %>">
+        </div>
 
-      <div>
-        <label for="reciever_id_box">
-          Reciever
-        </label>
+        <div>
+          <label for="reciever_id_box">
+            Reciever
+          </label>
 
-        <input type="text" id="reciever_id_box" name="query_reciever_id" value="<%= @the_bid.reciever_id %>">
-      </div>
+          <input type="text" id="reciever_id_box" name="query_reciever_id" value="<%= @the_bid.reciever_id %>">
+        </div>
 
-      <div>
-        <label for="status_box">
-          Status
-        </label>
+        <div>
+          <label for="status_box">
+            Status
+          </label>
 
-        <input type="text" id="status_box" name="query_status" value="<%= @the_bid.status %>">
-      </div>
+          <input type="text" id="status_box" name="query_status" value="<%= @the_bid.status %>">
+        </div>
 
-      <button>
-        Update bid
-      </button>
-    </form>
+        <button>
+          Update bid
+        </button>
+      </form>
+    </div>
   </div>
-</div>
-
 <hr>
