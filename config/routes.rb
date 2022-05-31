@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  # HOME PAGE?  
+  root to: 'pages#home'
 
 
   # Routes for the Bid resource:
