@@ -95,74 +95,91 @@
     </div>
   </div>
 
-<!-- Section: Design Block -->
-<section class="text-center text-lg-start">
-  <style>
-    .cascading-right {
-      margin-right: -650px;
-    }
 
-    @media (max-width: 991.98px) {
+
+
+
+<% if @current_user != nil %>
+
+
+
+
+
+
+
+
+  <!-- Section: Design Block -->
+  <section class="text-center text-lg-start">
+    <style>
       .cascading-right {
-        margin-right: 0;
+        margin-right: -650px;
       }
-    }
-  </style>
-   <!-- Jumbotron -->
-  <div class="container py-4">
-    <div class="row g-0 align-items-center">
-      <div class="col-lg-6 mb-5 mb-lg-0">
-        <div class="card cascading-right" style="
-            background: hsla(0, 0%, 100%, 0.55);
-            backdrop-filter: blur(30px);
-            ">
-          <div class="card-body p-5 shadow-5 text-left">
-            <br><h2 class="fw-bold mb-5">Edit product</h2>
 
-            <form action="/modify_product/<%= @the_product.id %>"  method="post" >
-     
+      @media (max-width: 991.98px) {
+        .cascading-right {
+          margin-right: 0;
+        }
+      }
+    </style>
+    <!-- Jumbotron -->
+    <div class="container py-4">
+      <div class="row g-0 align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="card cascading-right" style="
+              background: hsla(0, 0%, 100%, 0.55);
+              backdrop-filter: blur(30px);
+              ">
+            <div class="card-body p-5 shadow-5 text-left">
+              <br><h2 class="fw-bold mb-5">Edit product</h2>
 
-              <!-- 2 column grid layout with text inputs -->
-              <div class="col">
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="title_box" class="form-control" name="query_title" placeholder="Enter product title" type="text" value="<%= @the_product.title %>"/>
-                    <label class="form-label" for="title_box">Title</label>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="image_box" class="form-control" name="query_image" placeholder="Enter image address" type="text" value="<%= @the_product.image %>"/>
-                    <label class="form-label" for="image_box">Image address</label>
-                  </div>
-                </div>
-              
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="description_box" class="form-control" name="query_description" placeholder="Enter product description" type="text" value="<%= @the_product.description %>"/>
-                    <label class="form-label" for="description_box">Description</label>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="price_box" class="form-control" name="query_price" placeholder="Enter status" type="text"value="<%= @the_product.price %>"/>
-                    <label class="form-label" for="price_box">Price</label>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="owner_name_box" class="form-control" name="query_owner_name" placeholder="Enter owner" type="text"value="<%= @the_product.owner.name %>"/>
-                    <label class="form-label" for="owner_name_box">Owner </label>
-                  </div>
-                </div>
-              
-              <!-- Create edit button -->
-              <button href="/products" type="submit" class="btn btn-primary btn-block mb-4">
-                Update product
-              </button>
+              <form action="/modify_product/<%= @the_product.id %>"  method="post" >
+      
 
-<center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-YebtrlqtuHTj2ZE2hKqPZK30KnXRdzUTtg&usqp=CAU" class="rounded" height="200"></center>
-          
+                <!-- 2 column grid layout with text inputs -->
+                <div class="col">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="title_box" class="form-control" name="query_title" placeholder="Enter product title" type="text" value="<%= @the_product.title %>"/>
+                      <label class="form-label" for="title_box">Title</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="image_box" class="form-control" name="query_image" placeholder="Enter image address" type="text" value="<%= @the_product.image %>"/>
+                      <label class="form-label" for="image_box">Image address</label>
+                    </div>
+                  </div>
+                
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="description_box" class="form-control" name="query_description" placeholder="Enter product description" type="text" value="<%= @the_product.description %>"/>
+                      <label class="form-label" for="description_box">Description</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="price_box" class="form-control" name="query_price" placeholder="Enter status" type="text"value="<%= @the_product.price %>"/>
+                      <label class="form-label" for="price_box">Price</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input type="text" id="owner_name_box" class="form-control" name="query_owner_name" placeholder="Enter owner" type="text"value="<%= @the_product.owner.name %>"/>
+                      <label class="form-label" for="owner_name_box">Owner </label>
+                    </div>
+                  </div>
+                
+                <!-- Create edit button -->
+                <button href="/products" type="submit" class="btn btn-primary btn-block mb-4">
+                  Update product
+                </button>
+
+  <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-YebtrlqtuHTj2ZE2hKqPZK30KnXRdzUTtg&usqp=CAU" class="rounded" height="200"></center>
+
+
+
+<% end %>
+
 
 <!--
     <h1>
