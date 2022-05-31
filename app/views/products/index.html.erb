@@ -1,10 +1,74 @@
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .cascading-right {
+      margin-right: -650px;
+    }
+
+    @media (max-width: 991.98px) {
+      .cascading-right {
+        margin-right: 0;
+      }
+    }
+  </style>
+ <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="card cascading-right" style="
+            background: hsla(0, 0%, 100%, 0.55);
+            backdrop-filter: blur(30px);
+            ">
+          <div class="card-body p-5 shadow-5 text-left">
+            <h1 class="fw-bold mb-5">List of all products</h1>
+            <h2 class="fw-bold mb-5">Add a new product</h2>
+            <form action="/insert_product" method="post">
 
 
+              <!-- 2 column grid layout with text inputs -->
+              <div class="col">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="title_box" class="form-control" name="query_title" placeholder="Enter product title" type="text"/>
+                    <label class="form-label" for="form3Example1">Title</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="image_box" class="form-control" name="query_image" placeholder="Enter image address" type="text"/>
+                    <label class="form-label" for="form3Example2">Image</label>
+                  </div>
+                </div>
+              
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="description_box" class="form-control" name="query_description" placeholder="Enter item description" type="text"/>
+                    <label class="form-label" for="form3Example2">Description</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="price_box" class="form-control" name="query_price" placeholder="Enter your price" type="text"/>
+                    <label class="form-label" for="form3Example2">Price</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text" id="owner_id_box" class="form-control" name="query_owner_id" placeholder="Enter the owner name" type="text"/>
+                    <label class="form-label" for="form3Example2">Owner</label>
+                  </div>
+                </div>
+              <!-- Create product button -->
+              <button href="/homepage" type="submit" class="btn btn-primary btn-block mb-4">
+                Create Product
+              </button>
+
+
+
+<!-- ################## 
 <div>
   <div>
-    <h1>
-      List of all products
-    </h1>
+    <h1>List of all products</h1>
   </div>
 </div>
 
@@ -17,6 +81,8 @@
     </h2>
 
     <form action="/insert_product" method="post">
+      
+      
       <div>
         <label for="title_box">
           Title
@@ -63,7 +129,7 @@
     </form>
   </div>
 </div>
-
+-->
 <div>
   <div>
 <table class="table align-middle table-bordered">
@@ -84,7 +150,7 @@
         <tr>
           <td><%= a_product.id %></td>
           <td><%= a_product.title %></td>
-          <td><%= a_product.image %></td>
+          <td><img src="<%= a_product.image %></td>" class="rounded" height="200">
           <td><%= a_product.description %></td>
           <td><%= a_product.price %></td>
           <td><%= a_product.owner_id %></td>
