@@ -96,7 +96,7 @@
 <table class="table align-middle table-bordered">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">ID</th>
+      <!--<th scope="col">ID</th>-->
       <th scope="col">Title</th>
       <th scope="col">Image </th>
       <th scope="col">Description</th>
@@ -109,12 +109,12 @@
   <tbody>
   <% @list_of_products.each do |a_product| %>
         <tr>
-          <td><%= a_product.id %></td>
+          <!--<td><%= a_product.id %></td>-->
           <td><%= a_product.title %></td>
           <td><img src="<%= a_product.image %></td>" class="rounded" height="200">
           <td><%= a_product.description %></td>
           <td><%= a_product.price %></td>
-          <td><%= a_product.owner_id %></td>
+          <td><%= a_product.owner.name %></td>
           <td><%= time_ago_in_words(a_product.created_at) %> ago</td>
           <td><%= time_ago_in_words(a_product.updated_at) %> ago</td>
           <td>
@@ -129,7 +129,7 @@
     </div>
 
             <br><br><h2 class="fw-bold mb-5">Add a new product</h2>
-            <form action="/products" method="post">
+            <form action="/insert_product" method="post">
 
 
               <!-- 2 column grid layout with text inputs -->
@@ -165,6 +165,7 @@
                     <label class="form-label" for="form3Example2">Owner</label>
                   </div>
                 </div>
+
               <!-- Create product button -->
               <button href="/products" type="submit" class="btn btn-primary btn-block mb-4">
                 Create Product

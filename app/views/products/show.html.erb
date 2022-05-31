@@ -21,7 +21,7 @@
             backdrop-filter: blur(30px);
             ">
           <div class="card-body p-5 shadow-5 text-left">
-            <h1 class="fw-bold mb-6">Product #<%= @the_product.id %> details</h1>
+            <h1 class="fw-bold mb-6">The <%= @the_product.title %> </h1>
             <h4 class="fw-light mb-5">Edit product at the bottom of this page</h4>
 
                 <div>
@@ -67,10 +67,10 @@
                   </dd>
 
                   <dt>
-                    Owner ID
+                    Owner 
                   </dt>
                   <dd>
-                    <%= @the_product.owner_id %>
+                    <%= @the_product.owner.name %>
                   </dd>
 
                   <dt>
@@ -151,8 +151,8 @@
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <input type="text" id="owner_id_box" class="form-control" name="query_owner_id" placeholder="Enter status" type="text"value="<%= @the_product.owner_id %>"/>
-                    <label class="form-label" for="owner_id_box">Owner ID</label>
+                    <input type="text" id="owner_name_box" class="form-control" name="query_owner_name" placeholder="Enter owner" type="text"value="<%= @the_product.owner.name %>"/>
+                    <label class="form-label" for="owner_name_box">Owner </label>
                   </div>
                 </div>
               

@@ -43,14 +43,14 @@
                   <dd><%= @the_bid.product_id %></dd>
 
                   <dt>
-                    Sender
+                    Sender ID
                   </dt>
                   <dd>
                     <%= @the_bid.sender_id %>
                   </dd>
 
                   <dt>
-                    Reciever
+                    Reciever ID
                   </dt>
                   <dd><%= @the_bid.reciever_id %></dd>
 
@@ -134,12 +134,12 @@
             backdrop-filter: blur(30px);
             ">
           <div class="card-body p-5 shadow-5 text-left">
-            <br><h2 class="fw-bold mb-5">Edit bid</h2>
+            <br><h2 class="fw-bold mb-5">Edit bid status</h2>
 
             <form action="/modify_bid/<%= @the_bid.id %>"  method="post" >
      
 
-              <!-- 2 column grid layout with text inputs -->
+              <!-- 2 column grid layout with text inputs --
               <div class="col">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
@@ -159,7 +159,7 @@
                     <input type="text" id="reciever_id_box" class="form-control" name="query_reciever_id" placeholder="Enter reciever ID" type="text" value="<%= @the_bid.reciever_id %>"/>
                     <label class="form-label" for="reciever_id_box">Reciever</label>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                     <input type="text" id="status_box" class="form-control" name="query_status" placeholder="Enter status" type="text"value="<%= @the_bid.status %>"/>
@@ -169,7 +169,7 @@
               
               <!-- Create edit button -->
               <button href="/bids" type="submit" class="btn btn-primary btn-block mb-4">
-                Edit Bid
+                Edit Bid Status
               </button>
 
 <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-YebtrlqtuHTj2ZE2hKqPZK30KnXRdzUTtg&usqp=CAU" class="rounded" height="200"></center>
