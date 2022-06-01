@@ -127,7 +127,7 @@
       <% end %>
     </table>
     </div>
-
+          <% if @current_user != nil %>
             <br><br><h2 class="fw-bold mb-5">Add a new product</h2>
             <form action="/insert_product" method="post">
 
@@ -159,17 +159,12 @@
                     <label class="form-label" for="form3Example2">Price</label>
                   </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="owner_id_box" class="form-control" name="query_owner_id" placeholder="Enter the owner name" type="text"/>
-                    <label class="form-label" for="form3Example2">Owner</label>
-                  </div>
-                </div>
 
               <!-- Create product button -->
               <button href="/products" type="submit" class="btn btn-primary btn-block mb-4">
                 Create Product
               </button>
+          <% end %>
 
 
 

@@ -25,8 +25,8 @@ class BidsController < ApplicationController
   def create
     the_bid = Bid.new
     the_bid.product_id = params.fetch("query_product_id")
-    the_bid.sender_id = params.fetch("query_sender_id")
-    the_bid.reciever_id = params.fetch("query_reciever_id")
+    the_bid.sender_id = @current_user.id
+    the_bid.reciever_id = Product.find(params.fetch("query_product_id")).try(:owner_id)
     the_bid.status = params.fetch("query_status")
 
     if the_bid.valid?
@@ -41,15 +41,11 @@ class BidsController < ApplicationController
     the_id = params.fetch("path_id")
     the_bid = Bid.where({ :id => the_id }).at(0)
 
-    
-    #the_bid.product_id = params.fetch("query_product_id")
-    #the_bid.sender_id = params.fetch("query_sender_id")
-    #the_bid.reciever_id = params.fetch("query_reciever_id")
     the_bid.status = params.fetch("query_status")
 
     if the_bid.valid?
       the_bid.save
-      redirect_to("/bids/#{the_bid.id}", { :notice => "Bid updated successfully."} )
+      redirect_to("/bids/#{the_bid.id}", { :notice => "Bid updated successfully." })
     else
       redirect_to("/bids/#{the_bid.id}", { :alert => the_bid.errors.full_messages.to_sentence })
     end
@@ -61,6 +57,6 @@ class BidsController < ApplicationController
 
     the_bid.destroy
 
-    redirect_to("/bids", { :notice => "Bid deleted successfully."} )
+    redirect_to("/bids", { :notice => "Bid deleted successfully." })
   end
 end

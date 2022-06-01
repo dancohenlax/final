@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
     the_product.image = params.fetch("query_image")
     the_product.description = params.fetch("query_description")
     the_product.price = params.fetch("query_price")
-    the_product.owner_id = params.fetch("query_owner_id")
+    the_product.owner_id = @current_user.id
 
     if the_product.valid?
       the_product.save
@@ -41,11 +41,10 @@ class ProductsController < ApplicationController
     the_product.image = params.fetch("query_image")
     the_product.description = params.fetch("query_description")
     the_product.price = params.fetch("query_price")
-    the_product.owner.name = params.fetch("query_owner_name")
 
     if the_product.valid?
       the_product.save
-      redirect_to("/products/#{the_product.id}", { :notice => "Product updated successfully."} )
+      redirect_to("/products/#{the_product.id}", { :notice => "Product updated successfully." })
     else
       redirect_to("/products/#{the_product.id}", { :alert => the_product.errors.full_messages.to_sentence })
     end
@@ -57,6 +56,6 @@ class ProductsController < ApplicationController
 
     the_product.destroy
 
-    redirect_to("/products", { :notice => "Product deleted successfully."} )
+    redirect_to("/products", { :notice => "Product deleted successfully." })
   end
 end

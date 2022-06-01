@@ -40,19 +40,19 @@
                   <dt>
                     <br>Product
                   </dt>
-                  <dd><%= @the_bid.product_id %></dd>
+                  <dd><%= @the_bid.product.title %></dd>
 
                   <dt>
-                    Sender ID
+                    Sender
                   </dt>
                   <dd>
-                    <%= @the_bid.sender_id %>
+                    <%= @the_bid.sender.name %>
                   </dd>
 
                   <dt>
-                    Reciever ID
+                    Reciever
                   </dt>
-                  <dd><%= @the_bid.reciever_id %></dd>
+                  <dd><%= @the_bid.reciever.name %></dd>
 
                   <dt>
                     Status
@@ -112,7 +112,7 @@
 -->
 
 
-<% if @current_user != nil %>
+<% if @current_user != nil && @current_user.id == @the_bid.sender_id %>
 
 
 
@@ -143,27 +143,7 @@
               <form action="/modify_bid/<%= @the_bid.id %>"  method="post" >
       
 
-                <!-- 2 column grid layout with text inputs --
                 <div class="col">
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="title_box" class="form-control" name="query_product_id" placeholder="Enter product ID" type="text" value="<%= @the_bid.product_id %>"/>
-                      <label class="form-label" for="product_id_box">Product</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="sender_id_box" class="form-control" name="query_sender_id" placeholder="Enter sender ID" type="text" value="<%= @the_bid.sender_id %>"/>
-                      <label class="form-label" for="sender_id_box">Sender</label>
-                    </div>
-                  </div>
-                
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="reciever_id_box" class="form-control" name="query_reciever_id" placeholder="Enter reciever ID" type="text" value="<%= @the_bid.reciever_id %>"/>
-                      <label class="form-label" for="reciever_id_box">Reciever</label>
-                    </div>
-                  </div> -->
                   <div class="col-md-6 mb-4">
                     <div class="form-outline">
                       <input type="text" id="status_box" class="form-control" name="query_status" placeholder="Enter status" type="text"value="<%= @the_bid.status %>"/>
@@ -171,7 +151,6 @@
                     </div>
                   </div>
                 
-                <!-- Create edit button -->
                 <button href="/bids" type="submit" class="btn btn-primary btn-block mb-4">
                   Edit Bid Status
                 </button>

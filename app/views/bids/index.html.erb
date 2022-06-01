@@ -101,9 +101,9 @@
       <% @list_of_bids.order(:bid_id).reverse_order.each do |a_bid| %>
       <tr>
         <td><%= a_bid.id %></td>
-        <td><%= a_bid.product_id %></td>
-        <td><%= a_bid.sender_id %></td>
-        <td><%= a_bid.reciever_id %></td>
+        <td><%= a_bid.product.try(:title) || 'Bid Deleted' %></td>
+        <td><%= a_bid.sender.name %></td>
+        <td><%= a_bid.reciever.name %></td>
         <td><%= a_bid.status %></td>
         <td><%= time_ago_in_words(a_bid.created_at) %> ago</td>
         <td><%= time_ago_in_words(a_bid.updated_at) %> ago</td>
@@ -119,8 +119,8 @@
 </div>
 
 <hr>
-
-<br><h2 class="fw-bold mb-6">Add a new bid</h2>
+        <% if @current_user != nil %>
+          <br><h2 class="fw-bold mb-6">Add a new bid</h2>
             <form action="/insert_bid" method="post">
 
 
@@ -132,19 +132,7 @@
                     <label class="form-label" for="form3Example1">Product</label>
                   </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="image_box" class="form-control" name="query_sender_id" placeholder="Enter sender ID" type="text"/>
-                    <label class="form-label" for="form3Example2">Sender</label>
-                  </div>
-                </div>
               
-                <div class="col-md-6 mb-4">
-                  <div class="form-outline">
-                    <input type="text" id="description_box" class="form-control" name="query_reciever_id" placeholder="Enter reciever ID" type="text"/>
-                    <label class="form-label" for="form3Example2">Reciever</label>
-                  </div>
-                </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
                     <input type="text" id="price_box" class="form-control" name="query_status" placeholder="Enter status" type="text"/>
@@ -156,5 +144,6 @@
               <button href="/bids" type="submit" class="btn btn-primary btn-block mb-4">
                 Create Bid
               </button>
+          <% end %>
 
 <center><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-YebtrlqtuHTj2ZE2hKqPZK30KnXRdzUTtg&usqp=CAU" class="rounded" height="200"></center>

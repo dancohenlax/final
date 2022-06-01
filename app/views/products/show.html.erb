@@ -99,7 +99,7 @@
 
 
 
-<% if @current_user != nil %>
+<% if @current_user != nil && @current_user.id == @the_product.owner_id %>
 
 
 
@@ -160,12 +160,6 @@
                     <div class="form-outline">
                       <input type="text" id="price_box" class="form-control" name="query_price" placeholder="Enter status" type="text"value="<%= @the_product.price %>"/>
                       <label class="form-label" for="price_box">Price</label>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-4">
-                    <div class="form-outline">
-                      <input type="text" id="owner_name_box" class="form-control" name="query_owner_name" placeholder="Enter owner" type="text"value="<%= @the_product.owner.name %>"/>
-                      <label class="form-label" for="owner_name_box">Owner </label>
                     </div>
                   </div>
                 
